@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.ShujiDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.ShujiEntity" id="shujiMap">
+        <result property="shujibianhao" column="shujibianhao"/>
+        <result property="shujimingcheng" column="shujimingcheng"/>
+        <result property="fenlei" column="fenlei"/>
+        <result property="fengmian" column="fengmian"/>
+        <result property="zuozhe" column="zuozhe"/>
+        <result property="chubanshe" column="chubanshe"/>
+        <result property="jiage" column="jiage"/>
+        <result property="shuliang" column="shuliang"/>
+        <result property="shujijieshao" column="shujijieshao"/>
+        <result property="clicktime" column="clicktime"/>
+        <result property="clicknum" column="clicknum"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.ShujiVO" >
+		SELECT * FROM shuji  shuji         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.ShujiVO" >
+		SELECT  shuji.* FROM shuji  shuji 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.ShujiView" >
+
+		SELECT  shuji.* FROM shuji  shuji 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.ShujiView" >
+		SELECT * FROM shuji  shuji <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+</mapper>
